@@ -8,6 +8,16 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 const Footer = () => {
     const [queryText, setQueryText] = useState('')
 
+    const encode = data => {
+        return Object.keys(data)
+            .map(
+                key =>
+                    encodeURIComponent(key) +
+                    '=' +
+                    encodeURIComponent(data[key])
+            )
+            .join('&')
+    }
     const handleSubmit = e => {
         fetch('/', {
             method: 'POST',
