@@ -8,7 +8,7 @@ const Plate = ({ plateData }) => {
         <Page>
             <pre>{plateData}</pre>
             <Link href="/">
-                <a className="text-blue-500 mt-16 text-lg underline inline-block">
+                <a className="text-blue-500 mt-8 text-lg underline inline-block">
                     Back to Home
                 </a>
             </Link>

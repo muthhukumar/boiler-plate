@@ -1,37 +1,23 @@
 import { useState } from 'react'
 
 import SearchResult from '../searchResult/index'
+import SearchIcon from '@material-ui/icons/Search'
 
 const HomePage = ({ data }) => {
     const [queryText, setQueryText] = useState('')
 
-    const onSubmitHandler = event => {
-        event.preventDefault()
-    }
-
     return (
         <div className="flex items-center flex-col">
-            <h1 className="text-center text-xl font-medium my-4">
-                Generate boiler plate code for Html, Pug and more.
-            </h1>
-            <form
-                className="flex justify-center w-full"
-                onSubmit={onSubmitHandler}
-            >
+            <div className="flex border border-grey-500 w-full justify-center items-center px-2 py-4 rounded-lg">
+                <SearchIcon className="text-gray-400 " fontSize="large" />
                 <input
-                    className="w-3/5 border focus:outline-none focus:border-gray-500 border-gray-400 px-5 py-2 rounded-l-sm"
+                    className="text-lg w-3/5 focus:outline-none px-5 py-2 flex-2"
                     type="text"
                     value={queryText}
                     onChange={e => setQueryText(e.target.value)}
-                    placeholder="search programming language"
+                    placeholder="search programming language, config and more"
                 />
-                <button
-                    type="submit"
-                    className="hover:bg-teal-600 focus:outline-none w-32 rounded-r-sm bg-teal-500 shadow-md px-5 py-2 text-white font-bold"
-                >
-                    search
-                </button>
-            </form>
+            </div>
             {queryText && <SearchResult queryText={queryText} data={data} />}
         </div>
     )
