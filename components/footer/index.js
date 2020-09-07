@@ -11,7 +11,7 @@ const Footer = () => {
     return (
         <div className="border border-grey-500 flex p-4 bg-white shadow-md items-center justify-around text-black my-2 rounded-lg">
             <div className="mx-4">
-                <Link href="https://www.twitter.com/_0_void_">
+                <Link href="https://www.twitter.com/0_void_">
                     <a className="hover:cursor-pointer" target="_blank">
                         <TwitterIcon className="mx-2" fontSize="large" />
                     </a>
