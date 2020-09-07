@@ -28,6 +28,7 @@ const Footer = () => {
                 </Link>
             </div>
             <form name="plate request" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="plate request" />
                 <input
                     className="text-lg border border-grey-400 rounded px-3 py-2 flex-1 focus:outline-none focus:outline-grey-500"
                     placeholder="request plate"
