@@ -5,28 +5,8 @@ import TwitterIcon from '@material-ui/icons/Twitter'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 
-const encode = data => {
-    return Object.keys(data)
-        .map(
-            key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
-        )
-        .join('&')
-}
-
 const Footer = () => {
     const [queryText, setQueryText] = useState('')
-
-    const handleSubmit = e => {
-        fetch('/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: encode({ 'form-name': 'contact', queryText }),
-        })
-            .then(() => alert('Success!'))
-            .catch(error => alert(error))
-
-        e.preventDefault()
-    }
 
     return (
         <div className="border border-grey-500 flex p-4 bg-white shadow-md items-center justify-around text-black my-2 rounded-lg">
@@ -47,14 +27,12 @@ const Footer = () => {
                     </a>
                 </Link>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form name="plate request" method="POST" data-netlify="true">
                 <input
                     className="text-lg border border-grey-400 rounded px-3 py-2 flex-1 focus:outline-none focus:outline-grey-500"
                     placeholder="request plate"
-                    value={queryText}
                     name="plate"
                     type="text"
-                    onChange={e => setQueryText(e.target.value)}
                 />
                 <button
                     type="submit"
