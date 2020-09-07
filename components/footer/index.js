@@ -5,26 +5,24 @@ import TwitterIcon from '@material-ui/icons/Twitter'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 
+const encode = data => {
+    return Object.keys(data)
+        .map(
+            key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+        )
+        .join('&')
+}
+
 const Footer = () => {
     const [queryText, setQueryText] = useState('')
 
-    const encode = data => {
-        return Object.keys(data)
-            .map(
-                key =>
-                    encodeURIComponent(key) +
-                    '=' +
-                    encodeURIComponent(data[key])
-            )
-            .join('&')
-    }
     const handleSubmit = e => {
         fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: encode({ 'form-name': 'plate request', queryText }),
+            body: encode({ 'form-name': 'contact', queryText }),
         })
-            .then(() => {})
+            .then(() => alert('Success!'))
             .catch(error => alert(error))
 
         e.preventDefault()
